@@ -35,7 +35,10 @@ let*
             (
                 (coinName (first coinNames))
                 (nextCoinNames (cdr coinNames))
-                (myText (concatenate 'string (write-to-string (first myList)) coinName))
+                (coinCount (first myList))
+                (myText ( 
+                    if (= coinCount 0) "" (concatenate 'string (write-to-string coincount) coinName)    
+                 ))
                 (nextString 
                     (concatenate 'string myString 
                         myText)) 
