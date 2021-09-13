@@ -2,7 +2,9 @@
 (  print "Enter a dollar ammount as a decimal number:"  )
 (  setq ammount     
     (  read  )  )
-(  defun runGoStart     
+
+
+(  defun determineCoins     
     (  ammount myList coinList  )     
     (  if coinList        
         (  let*            
@@ -19,9 +21,11 @@
                     (  cons evenFit myList  )  )                 
                 (  nextCoinList                     
                     (  cdr coinList  )  )  )             
-            (  runGoStart nextAmmount nextList nextCoinList  ) )        
+            (  determineCoins nextAmmount nextList nextCoinList  ) )        
         ( reverse myList ) ) )
-( defun fancyPrint     
+
+
+( defun formattedOutput     
     ( myList myString coinNames )     
     ( if myList        
         (  let*            
@@ -41,10 +45,12 @@
                     ( concatenate 'string myString myText) )                
                 ( nextList                     
                     ( cdr myList ) ) )            
-            ( fancyPrint nextList nextString nextCoinNames) )myString) )
+            ( formattedOutput nextList nextString nextCoinNames) )myString) )
+
+
 (  print     
-    ( fancyPrint         
-        (  runGoStart             
+    ( formattedOutput         
+        (  determineCoins             
             (  * ammount 100  ) Nil             
             (  List 25 10 5 1  )  ) ""         
-        ( List " Quarters " " Dimes " " Nickles " " Pennies " ) ))
+        ( List " Quarter(s) " " Dime(s) " " Nickle(s) " " Pennie(s) " ) ))
