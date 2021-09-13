@@ -1,11 +1,11 @@
 
-(  print "Enter a dollar ammount as a decimal number:"  )
-(  setq ammount     
+(  print "Enter a dollar amount as a decimal number:"  )
+(  setq amount     
     (  read  )  )
 
 
 (  defun determineCoins     
-    (  ammount myList coinList  )     
+    (  amount myList coinList  )     
     (  if coinList        
         (  let*            
             (                  
@@ -13,15 +13,15 @@
                     (  first coinList  )  )                 
                 (  evenFit                     
                     (  floor                         
-                        (  / ammount coin  )  )  )                 
-                (  nextAmmount                     
-                    (  - ammount                         
+                        (  / amount coin  )  )  )                 
+                (  nextamount                     
+                    (  - amount                         
                         (  * evenFit coin  )  )  )                 
                 (  nextList                     
                     (  cons evenFit myList  )  )                 
                 (  nextCoinList                     
                     (  cdr coinList  )  )  )             
-            (  determineCoins nextAmmount nextList nextCoinList  ) )        
+            (  determineCoins nextamount nextList nextCoinList  ) )        
         ( reverse myList ) ) )
 
 
@@ -51,6 +51,6 @@
 (  print     
     ( formattedOutput         
         (  determineCoins             
-            (  * ammount 100  ) Nil             
+            (  * amount 100  ) Nil             
             (  List 25 10 5 1  )  ) ""         
         ( List " Quarter(s) " " Dime(s) " " Nickle(s) " " Pennie(s) " ) ))
