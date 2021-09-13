@@ -1,0 +1,11 @@
+{
+  "name": "lisp-coins",
+  "version": "1.0.0",
+  "description": "Input a price, output the coins to make change for that while trying to provide the fewest coins possible.",
+  "main": "main.lisp",
+  "scripts": {
+    "start": "clear; clisp main.lisp"
+  },
+  "author": "Wesley Courtney",
+  "license": "ISC"
+}
